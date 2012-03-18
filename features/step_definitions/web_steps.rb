@@ -252,3 +252,7 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+Then /table "(.+)" have roles count (.+)/ do |selector, value|
+  assert_equal page.all("table\##{selector} tr").count, value.to_i
+end
